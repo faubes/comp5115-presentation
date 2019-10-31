@@ -2,9 +2,10 @@
 %\frametitle{Title}
 
 \begin{center}
-{\Large Zollh\"ofer, Michael et al.
+{\Large
+Pagliari et al.
 
-STAR: Reconstruction with RGB-D}
+Kinect Fusion Improvement Using Depth Camera Calibration}
 
 COMP5115 - Fall 2019
 \end{center}
@@ -14,10 +15,63 @@ COMP5115 - Fall 2019
 \frametitle{Outline}
 
 \begin{itemize}
-\item Introduction
-\item Static Scene Reconstruction
-\item Capturing Dynamic Scenes
-\item Color and Appearance
+\item Introduction and Motivation
+\item Related Works
+\item The KinectFusion Method
+\item Results and Quick Look at State of the Art
 \end{itemize}
 
+\end{frame}
+
+\begin{frame}
+\frametitle{Introduction and Motivation}
+
+\begin{itemize}
+\item Purchased an Intel RealSense D435 Camera.
+\item Studied STAR paper by Zollh\"ofer to see how it could be used.
+\item Realized that article was too high-level (and advanced).
+\item KinectFusion seems to have established current paradigm. Explains math bits nicely,
+so a good starting paper.
+\end{itemize}
+
+[depth image here]
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Problem Statement}
+
+Problem: process a stream of RGB-D frames for Simultaneous Localization and Mapping
+(and do it in real time!)
+
+\begin{itemize}
+  \item Tracking: estimate the pose (position + orientation) of the camera.
+  Camera presumed moving through space -- need to keep track of position and which way it's pointing.
+  \item Mapping: (incrementally) build a model of the scene captured by camera.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Challenges}
+\begin{itemize}
+  \item High volume of data (640x480 @ 30fps = 9 million points per sec)
+  \item Occlusion (stuff in the way), holes
+  \item Measurement errors: incident angles, shiny or transparent materials
+  \item Potentially erratic camera movement: blurry measurements
+  \item Dynamic scenes, moving objects
+  \item Camera drift: accumulation of errors in pose estimation
+\end{itemize}
+\end{frame}
+
+\begin{frame}[allowframebreaks]
+  \frametitle<presentation>{Related Works}
+  \begin{thebibliography}{1}
+  \beamertemplatearticlebibitems
+  \bibitem{murartal2015slam}
+    \newblock Mur-Artal R., Montiel J. M. M., Tardos J. D.
+    \newblock Orb-slam: a versatile and accurate monocular SLAM system 2015.
+  \bibitem{bogo2015moving}
+    \newblock Bogo F., Black M. J., Loper M., Romero J
+    \newblock Detailed full-body reconstructions of moving people from monocular RGB-D sequences.
+  \end{thebibliography}
 \end{frame}

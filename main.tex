@@ -28,10 +28,16 @@
 \usepackage[latin1]{inputenc}
 \usefonttheme{professionalfonts}
 \usepackage{times}
-\usepackage{tikz}
+% \usepackage{tikz}
 \usepackage{amsmath}
+\usepackage{amssymb}
 \usepackage{verbatim}
-\usetikzlibrary{arrows,shapes}
+\usepackage{graphicx}
+\usepackage{csquotes}
+% \usetikzlibrary{arrows,shapes}
+
+\renewcommand{\vec}[1]{\mathbf{#1}}
+\DeclareMathOperator{\sign}{sgn}
 
 \DeclareMathOperator{\EX}{\mathbb{E}}
 
@@ -47,11 +53,13 @@
 
 \end{comment}
 
-% By default all math in TikZ nodes are set in inline mode. Change this to
-% displaystyle so that we don't get small fractions.
 \everymath{\displaystyle}
 
 \input{introduction.tex}
+
+\input{method.tex}
+
+\input{results.tex}
 
 \input{references.tex}
 
